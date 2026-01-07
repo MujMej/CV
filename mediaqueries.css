@@ -1,0 +1,12 @@
+@media (max-width: 1200px) {
+    #desktop-nav { display: none; }
+    #hamburger-nav { display: flex; justify-content: space-between; }
+    .hamburger-menu { display: block; }
+}
+
+@media (max-width: 768px) {
+    #profile { flex-direction: column; text-align: center; }
+    .section__pic-container img { width: 250px; height: 250px; }
+    .title { font-size: 2.5rem; }
+    .project-card { width: 100%; }
+}
