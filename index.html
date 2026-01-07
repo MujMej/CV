@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mejra Mujanović - Cybersecurity Analyst</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="desktop-nav">
+        <div class="logo">Mejra Mujanović</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="dark-toggle" onclick="toggleDarkMode()">Dark</div>
+    </nav>
+
+    <nav id="hamburger-nav">
+        <div class="logo">Mejra Mujanović</div>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="menu-links">
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            </div>
+        </div>
+        <div class="dark-toggle mobile" onclick="toggleDarkMode()">Dark</div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section id="profile">
+        <div class="section__pic-container">
+            <img src="assets/profile-pic.jpg" alt="Mejra Mujanović" /> <!-- stavi svoju sliku -->
+        </div>
+        <div class="section__text">
+            <p class="section__text__p1">Hello, I'm</p>
+            <h1 class="title">Mejra Mujanović</h1>
+            <p class="section__text__p2">Cybersecurity Analyst & Educator</p>
+            <div class="btn-container">
+                <button class="btn btn-color-2" onclick="window.open('assets/resume.pdf')">Download CV</button>
+                <button class="btn btn-color-1" onclick="location.href='#contact'">Contact</button>
+            </div>
+            <div id="socials-container">
+                <img src="assets/linkedin.png" alt="LinkedIn" class="icon" onclick="location.href='https://www.linkedin.com/in/mejra-mujanovic/'" />
+                <img src="assets/github.png" alt="GitHub" class="icon" onclick="location.href='https://github.com/MujMej'" />
+                <img src="assets/instagram.png" alt="Instagram" class="icon" onclick="location.href='https://www.instagram.com/mujmej/'" />
+                <div class="coming-soon" onclick="alert('mujmej online galerija & shop - dolazi uskoro')">mujmej</div>
+                <div class="coming-soon" onclick="alert('bossonoga natural cosmetics - dolazi uskoro')">bossonoga</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <p class="section__text__p1">Get to know me</p>
+        <h1 class="title">About Me</h1>
+        <div class="text-container">
+            <p>Cybersecurity Analyst sa strašću prema edukaciji djece i porodica o sajber bezbjednosti. Microsoft Certified Security Operations Analyst (SC-200). Ambasador Women4Cyber Chapter Bosnia and Herzegovina od 2025. Volonter, umjetnica, kreator prirodne kozmetike i vječiti učenik.</p>
+            <p>Languages: English (C1) · Serbian/Croatian/Bosnian (Native) · German (B1) · Italian (A1) · Arabic (A1)</p>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <p class="section__text__p1">Explore My</p>
+        <h1 class="title">Experience</h1>
+
+        <div class="experience-category">
+            <h2>Full-time Positions</h2>
+            <details class="job-details">
+                <summary>SOC Analyst (Level 1) – PULSEC, Banja Luka | 2023–Present</summary>
+                <div class="job-content">
+                    <p>24/7 monitoring, triage and initial incident handling across international clients.</p>
+                    <ul>
+                        <li>Continuous monitoring using QRadar, Microsoft Defender XDR/MDO, Trend Micro Vision One, Carbon Black</li>
+                        <li>First-line triage of phishing, malware, credential misuse, MFA anomalies, C2, IPS/IDS events</li>
+                        <li>Investigation using logs, EDR telemetry, email traces, MITRE ATT&CK</li>
+                        <li>Escalation to L2/L3 with full context, ServiceNow lifecycle management</li>
+                        <li>False positive tuning, detailed documentation, client support tickets</li>
+                        <li>0-24 rotating shifts</li>
+                    </ul>
+                    <p><strong>Achievements:</strong> Processed thousands of incidents with high accuracy, contributed to FP reduction, recognised for precision in high-severity cases.</p>
+                </div>
+            </details>
+
+            <details class="job-details">
+                <summary>Data Analyst – DDC MLS, Banja Luka | 2022–2023</summary>
+                <div class="job-content">
+                    <p>Data manipulation using Anydesk, MaxCare, Zendesk, 360. Client support with first-contact resolution.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="experience-category">
+            <h2>Part-time / Honorarno</h2>
+            <details class="job-details">
+                <summary>Producer – OneTV, Remote (Kozarac–Chicago) | 2019–2023</summary>
+                <div class="job-content">
+                    <p>Live broadcasts, video production, social media promotion (Facebook, YouTube, Instagram), website maintenance.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="experience-category">
+            <h2>Volunteer Work & Ambassadorship</h2>
+            <details class="job-details">
+                <summary>Women4Cyber Ambassador Bosnia and Herzegovina | 2025–Present</summary>
+                <div class="job-content">
+                    <p>Promoting women's role in cybersecurity, gender equality, education, training programs, and increasing women's presence in the job market and research.</p>
+                </div>
+            </details>
+            <details class="job-details">
+                <summary>Facilitator – Nansenskolen, NDC, Most Mira | 2010–2022</summary>
+                <div class="job-content">
+                    <p>Workshops on diversity, inclusion, stereotypes, peer violence, peacebuilding, community performances.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="experience-category">
+            <h2>Entrepreneurial Ventures</h2>
+            <p><strong>@mujmej</strong> – Artist: Painting and selling original artwork and prints online.</p>
+            <p><strong>@bossonoga</strong> – Creator of natural spa-ritual body care products (bath salts, foot soaks, scrubs, butters, oils).</p>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <p class="section__text__p1">My Initiatives</p>
+        <h1 class="title">Projects & Initiatives</h1>
+        <div class="projects-container">
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h2>S.AF.E Blog</h2>
+                    <p>Samostalna inicijativa podržana od Women4Cyber BiH Chapter. Blog na bosanskom/hrvatskom/srpskom jeziku posvećen podizanju svijesti o sajber bezbjednosti za porodice, djecu i širu javnost.</p>
+                    <h3 class="counter-display"><span class="counter">0</span>+ postova</h3>
+                    <div class="btn-container">
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://s-af-e.blogspot.com/'">Posjeti Blog</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h2>Cyber Security Education for Children</h2>
+                    <p>Interaktivne prezentacije i radionice za djecu o online bezbjednosti, phishingu, privatnosti i sajber higijeni.</p>
+                    <div class="btn-container">
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/MujMej/cyber-edu-children'">Prezentacije & Materijali (GitHub)</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <p class="section__text__p1">Get in Touch</p>
+        <h1 class="title">Contact Me</h1>
+        <div class="contact-container">
+            <div class="contact-info">
+                <img src="assets/email.png" alt="Email" class="icon" />
+                <p><a href="mailto:mejrajob@gmail.com">mejrajob@gmail.com</a></p>
+            </div>
+            <div class="contact-info">
+                <img src="assets/linkedin.png" alt="LinkedIn" class="icon" />
+                <p><a href="https://www.linkedin.com/in/mejra-mujanovic/">LinkedIn Profile</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright © 2026 Mejra Mujanović. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
