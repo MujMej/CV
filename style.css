@@ -1,0 +1,89 @@
+:root {
+    --bg: #f8fafc;
+    --text: #1e293b;
+    --primary: #10b981;      /* emerald green */
+    --accent: #fbbf24;       /* gold */
+    --card: white;
+    --shadow: rgba(0,0,0,0.1);
+}
+
+.dark-mode {
+    --bg: #0f172a;
+    --text: #e2e8f0;
+    --primary: #6ee7b7;
+    --accent: #fcd34d;
+    --card: #1e293b;
+    --shadow: rgba(0,0,0,0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); transition: all 0.4s ease; line-height: 1.6; }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: var(--primary);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.4s;
+}
+
+.logo { font-size: 1.8rem; font-weight: 700; color: white; }
+.nav-links li { list-style: none; display: inline-block; margin: 0 20px; }
+.nav-links a { color: white; text-decoration: none; font-weight: 500; transition: all 0.3s; }
+.nav-links a:hover { color: var(--accent); transform: scale(1.1); }
+
+.dark-toggle {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#profile { padding: 120px 5% 80px; display: flex; align-items: center; justify-content: center; gap: 5rem; flex-wrap: wrap; text-align: center; }
+.section__pic-container img { width: 350px; height: 350px; object-fit: cover; border-radius: 50%; border: 8px solid var(--primary); }
+.title { font-size: 3.5rem; margin: 10px 0; }
+.section__text__p2 { font-size: 1.8rem; color: var(--primary); font-weight: 600; }
+
+.btn { padding: 12px 28px; border-radius: 30px; font-weight: 600; cursor: pointer; transition: all 0.3s; margin: 10px; }
+.btn-color-1 { background: var(--primary); color: white; border: none; }
+.btn-color-1:hover { background: var(--accent); }
+.btn-color-2 { background: none; border: 2px solid var(--primary); color: var(--primary); }
+.btn-color-2:hover { background: var(--primary); color: white; }
+
+#socials-container { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.icon { width: 45px; height: 45px; cursor: pointer; transition: 0.3s; }
+.icon:hover { transform: scale(1.2); }
+.coming-soon { background: var(--primary); color: white; padding: 10px 20px; border-radius: 30px; cursor: pointer; font-size: 0.9rem; }
+.coming-soon:hover { background: var(--accent); color: black; }
+
+section { padding: 100px 5%; }
+.section__text__p1 { text-align: center; color: var(--primary); font-weight: 600; }
+.title { text-align: center; font-size: 3rem; margin-bottom: 50px; }
+
+.text-container { max-width: 800px; margin: 0 auto; background: var(--card); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow); }
+
+.experience-category { margin-bottom: 60px; }
+.experience-category h2 { color: var(--primary); margin-bottom: 20px; text-align: center; }
+
+.job-details { background: var(--card); margin: 20px 0; border-radius: 15px; padding: 10px; box-shadow: 0 5px 15px var(--shadow); }
+.job-details summary { font-size: 1.4rem; font-weight: 600; cursor: pointer; padding: 20px; color: var(--primary); }
+.job-details[open] summary { margin-bottom: 15px; }
+.job-content { padding: 0 30px 30px; }
+
+.projects-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
+.project-card { background: var(--card); padding: 40px; border-radius: 20px; width: 400px; box-shadow: 0 10px 30px var(--shadow); transition: 0.3s; }
+.project-card:hover { transform: translateY(-10px); }
+.project-card h2 { color: var(--primary); margin-bottom: 15px; }
+.counter-display { font-size: 2rem; font-weight: 700; color: var(--primary); margin: 20px 0; }
+
+.contact-container { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; }
+.contact-info { display: flex; align-items: center; gap: 15px; font-size: 1.3rem; }
+
+footer { text-align: center; padding: 40px; background: var(--primary); color: white; margin-top: 50px; }
