@@ -1,70 +1,85 @@
 /* THEME TOGGLE */
 function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
+  document.body.classList.toggle("dark-mode");
+  const isDark = document.body.classList.contains("dark-mode");
 
-    const isDark = document.body.classList.contains("dark-mode");
+  document.querySelectorAll(".dark-toggle").forEach((btn) => {
+    btn.innerText = isDark ? "Light mode" : "Dark mode";
+  });
 
-    document.querySelectorAll(".dark-toggle")
-        .forEach(btn => btn.innerText = isDark ? "Light mode" : "Dark mode";);
-
-    localStorage.setItem("darkMode", isDark);
+  localStorage.setItem("darkMode", String(isDark));
 }
 
-// Load saved theme on page load
-document.addEventListener("DOMContentLoaded", () => {
-    const saved = localStorage.getItem("darkMode");
+/* COUNTER ANIMATION */
+function animateCounter(id, target, duration = 1800) {
+  const el = document.getElementById(id);
+  if (!el) return;
 
-    if (saved === "true") {
-        document.body.classList.add("dark-mode");
-        document.querySelectorAll(".dark-toggle")
-            .forEach(btn => btn.innerText = "Light");
+  let current = 0;
+  const intervalMs = 50;
+  const steps = Math.max(1, Math.floor(duration / intervalMs));
+  const step = Math.max(1, Math.ceil(target / steps));
+
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
     }
+    el.textContent = current;
+  }, intervalMs);
+}
 
-    animateCounter("postCounter", 80);
-    
-    // Profile image rotate (optional)
-  rotateProfileImages([
-    "assets/profile-pic.jpg",
-    "assets/profile-pic-2.jpg"
-  ], 3500);
-});
+/* HERO IMAGE ROTATION (2-frame swap) */
+function rotateHeroImages(mainId, topId, imgA, imgB, intervalMs = 3500) {
+  const main = document.getElementById(mainId);
+  const top = document.getElementById(topId);
+  if (!main || !top) return;
 
-function rotateProfileImages(images, intervalMs = 3500) {
-  const img = document.getElementById("profileImage");
-  if (!img || !images || images.length < 2) return;
+  // start state: main = A, top = B (already set in HTML)
+  const pairs = [
+    { main: imgA, top: imgB },
+    { main: imgB, top: imgA },
+  ];
 
   let index = 0;
 
   setInterval(() => {
-    img.classList.add("fade-out");
+    main.classList.add("fade-out");
+    top.classList.add("fade-out");
 
     setTimeout(() => {
-      index = (index + 1) % images.length;
-      img.src = images[index];
-      img.classList.remove("fade-out");
-    }, 650);
+      index = (index + 1) % pairs.length;
+      main.src = pairs[index].main;
+      top.src = pairs[index].top;
 
+      main.classList.remove("fade-out");
+      top.classList.remove("fade-out");
+    }, 650);
   }, intervalMs);
 }
+
+/* ON LOAD */
+document.addEventListener("DOMContentLoaded", () => {
+  // restore theme
+  const saved = localStorage.getItem("darkMode");
+  const isDark = saved === "true";
+
+  if (isDark) document.body.classList.add("dark-mode");
+
+  document.querySelectorAll(".dark-toggle").forEach((btn) => {
+    btn.innerText = isDark ? "Light mode" : "Dark mode";
+  });
+
+  // counter (set your real number here)
+  animateCounter("postCounter", 80);
+
+  // two-image swap
+  rotateHeroImages(
+    "heroImageMain",
+    "heroImageTop",
+    "assets/profile-pic.jpg",
+    "assets/profile-pic-2.jpg",
+    3500
+  );
 });
-
-
-/* COUNTER ANIMATION */
-function animateCounter(id, target, duration = 1800) {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    let current = 0;
-    const step = Math.ceil(target / (duration / 50));
-
-    const interval = setInterval(() => {
-        current += step;
-
-        if (current >= target) {
-            current = target;
-            clearInterval(interval);
-        }
-
-        el.textContent = current;
-    }, 50);
-}
