@@ -2,33 +2,28 @@
    THEME VARIABLES – EMERALD + GOLD
 ========================= */
 :root {
-  /* Light mode – svijetla, čista, emerald identitet */
-  --bg: #F7F9F6;          /* glavna pozadina */
-  --text: #0B2F28;        /* osnovni tekst (tamni teal) */
-  --primary: #0F6B52;     /* smaragdno zelena – tvoja glavna boja */
-  --accent: #D9B35A;      /* toplo zlato – akcenti / CTA */
-  --card: #FFFFFF;        /* kartice, blokovi */
+  --bg: #F7F9F6;
+  --text: #0B2F28;
+  --primary: #0F6B52;
+  --accent: #D9B35A;
+  --card: #FFFFFF;
   --shadow: rgba(0, 0, 0, 0.08);
 
-  /* ikonice na svijetloj temi */
   --icon-bg: #0B2F28;
   --icon-bg-hover: #064737;
 }
 
 .dark-mode {
-  /* Dark mode – tamna, smirena, emerald pozadina */
-  --bg: #0B1010;          /* vrlo tamna teal/charcoal pozadina */
-  --text: #E9EEE9;        /* svijetli tekst */
-  --primary: #0F6B52;     /* i dalje smaragd – konzistentan brand */
-  --accent: #D9B35A;      /* zlato za naglaske */
-  --card: #0B2F28;        /* tamne kartice */
+  --bg: #0B1010;
+  --text: #E9EEE9;
+  --primary: #0F6B52;
+  --accent: #D9B35A;
+  --card: #0B2F28;
   --shadow: rgba(0, 0, 0, 0.6);
 
-  /* ikonice na dark temi */
   --icon-bg: #0F3F35;
   --icon-bg-hover: #020617;
 }
-
 
 /* =========================
    GLOBAL RESET
@@ -72,14 +67,12 @@ nav {
   white-space: nowrap;
 }
 
-/* Right side container (nav links + toggle + optional pills) */
 .nav-right {
   display: flex;
   align-items: center;
   gap: 18px;
 }
 
-/* Nav links list */
 .nav-links {
   display: flex;
   gap: 28px;
@@ -89,15 +82,13 @@ nav {
   padding: 0;
 }
 
-.nav-links li {
-  list-style: none;
-}
+.nav-links li { list-style: none; }
 
 .nav-links a {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  display: inline-block; /* IMPORTANT for transform */
+  display: inline-block;
   transition: color 0.25s ease, transform 0.25s ease;
 }
 
@@ -106,7 +97,6 @@ nav {
   transform: translateY(-2px);
 }
 
-/* Theme toggle */
 .dark-toggle {
   background: rgba(255, 255, 255, 0.2);
   color: white;
@@ -151,10 +141,17 @@ nav {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
+/* FIX: visible in light mode, glass in dark mode */
 .pill-ig {
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: white;
+  background: var(--primary);
+  color: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.dark-mode .pill-ig {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #fff;
 }
 
 .pill.disabled {
@@ -167,7 +164,7 @@ nav {
    HERO / PROFILE
 ========================= */
 #profile {
-  padding: 120px 5% 80px; /* accounts for fixed nav */
+  padding: 120px 5% 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -176,12 +173,43 @@ nav {
   text-align: center;
 }
 
-.section__pic-container img {
+/* Two-frame hero images (single source of truth) */
+.section__pic-container {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  display: grid;
+  place-items: center;
+}
+
+/* base */
+.hero-image {
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.6s ease;
+}
+
+.hero-image.fade-out { opacity: 0; }
+
+/* MAIN: veliki krug */
+.hero-image--main {
   width: 350px;
   height: 350px;
-  object-fit: cover;
-  border-radius: 50%;
   border: 8px solid var(--primary);
+  z-index: 1;
+}
+
+/* TOP: mali krug */
+.hero-image--top {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 120px;
+  height: 120px;
+  border: 6px solid var(--accent);
+  box-shadow: 0 10px 30px var(--shadow);
+  z-index: 2;
 }
 
 .section__text__p1 {
@@ -248,7 +276,7 @@ nav {
 }
 
 /* =========================
-   SOCIALS
+   SOCIALS / ICONS
 ========================= */
 #socials-container {
   margin-top: 20px;
@@ -258,15 +286,17 @@ nav {
   flex-wrap: wrap;
 }
 
+/* FIX: bigger icons (circle + icon) */
 .icon {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  width: 56px;
+  height: 56px;
+  padding: 0;
   border-radius: 999px;
-  padding: 8px;
   background: var(--icon-bg);
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .icon:hover {
@@ -293,9 +323,7 @@ nav {
 /* =========================
    SECTIONS / CONTENT CARDS
 ========================= */
-section {
-  padding: 100px 5%;
-}
+section { padding: 100px 5%; }
 
 .text-container {
   max-width: 800px;
@@ -309,9 +337,7 @@ section {
 /* =========================
    EXPERIENCE
 ========================= */
-.experience-category {
-  margin-bottom: 60px;
-}
+.experience-category { margin-bottom: 60px; }
 
 .experience-category h2 {
   color: var(--primary);
@@ -338,21 +364,17 @@ section {
 
 .job-details summary::-webkit-details-marker { display: none; }
 
-.job-details[open] summary {
-  margin-bottom: 15px;
-}
+.job-details[open] summary { margin-bottom: 15px; }
 
-/* EXPERIENCE – make content readable, not centered */
 .job-content {
-  text-align: left;          /* KLJUČ */
-  max-width: 900px;          /* da ne bude preširoko */
+  text-align: left;
+  max-width: 900px;
   margin: 0 auto;
 }
 
-/* Nice bullet list */
 .job-content ul {
   margin: 14px 0 0;
-  padding-left: 20px;        /* normalno uvlačenje */
+  padding-left: 20px;
   list-style-position: outside;
 }
 
@@ -361,16 +383,12 @@ section {
   line-height: 1.65;
 }
 
-/* Achievements paragraph */
 .job-content p {
   margin: 10px 0;
   line-height: 1.75;
 }
 
-/* OPTIONAL: make first line (role summary) slightly muted */
-.job-content > p:first-of-type {
-  opacity: 0.9;
-}
+.job-content > p:first-of-type { opacity: 0.9; }
 
 /* =========================
    PROJECTS
@@ -440,21 +458,13 @@ footer {
    RESPONSIVE
 ========================= */
 @media (max-width: 900px) {
-  nav {
-    padding: 0.9rem 4%;
-  }
+  nav { padding: 0.9rem 4%; }
 
-  .logo {
-    font-size: 1.3rem;
-  }
+  .logo { font-size: 1.3rem; }
 
-  .nav-right {
-    gap: 12px;
-  }
+  .nav-right { gap: 12px; }
 
-  .nav-links {
-    gap: 14px;
-  }
+  .nav-links { gap: 14px; }
 
   .dark-toggle {
     padding: 7px 12px;
@@ -466,18 +476,22 @@ footer {
     padding: 110px 5% 70px;
   }
 
-  .section__pic-container img {
+  /* FIX: responsive only for hero frames (not all imgs) */
+  .hero-image--main {
     width: 260px;
     height: 260px;
   }
 
-  .hero-title {
-    font-size: 2.6rem;
+  .hero-image--top {
+    width: 100px;
+    height: 100px;
+    top: -14px;
+    right: -14px;
   }
 
-  .section__text__p2 {
-    font-size: 1.4rem;
-  }
+  .hero-title { font-size: 2.6rem; }
+
+  .section__text__p2 { font-size: 1.4rem; }
 
   .project-card {
     width: 100%;
@@ -486,10 +500,7 @@ footer {
 }
 
 @media (max-width: 520px) {
-  /* Optional: hide nav links if you don't have a hamburger menu yet */
-  .nav-links {
-    display: none;
-  }
+  .nav-links { display: none; }
 }
 
 /* Better readable text blocks */
@@ -499,31 +510,10 @@ footer {
   line-height: 1.75;
 }
 
-.text-container p:last-child {
-  margin-bottom: 0;
-}
-
-/* Lists readability (Experience, etc.) */
-.job-content ul {
-  margin: 14px 0 0;
-  padding-left: 20px;
-}
-
-.job-content li {
-  margin: 10px 0;
-  line-height: 1.65;
-}
-
-/* Make long content easier */
-.job-content p {
-  margin: 10px 0;
-  line-height: 1.75;
-}
+.text-container p:last-child { margin-bottom: 0; }
 
 /* Make footer stick to bottom when page is short */
-html, body {
-  height: 100%;
-}
+html, body { height: 100%; }
 
 body {
   min-height: 100%;
@@ -546,7 +536,6 @@ body {
   letter-spacing: 0.2px;
 }
 
-/* “MujMej” italic signature */
 .brand-sign {
   font-family: 'Georgia', serif;
   font-style: italic;
@@ -554,12 +543,11 @@ body {
   margin-left: 4px;
 }
 
-#profileImage {
-  transition: opacity 0.6s ease;
-}
-#profileImage.fade-out {
-  opacity: 0;
-}
+/* kept (you asked not to remove) */
+#profileImage { transition: opacity 0.6s ease; }
+#profileImage.fade-out { opacity: 0; }
+
+/* Ventures */
 .venture-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(260px, 1fr));
@@ -593,53 +581,12 @@ body {
   font-size: 1.2rem;
 }
 
-.venture-card p {
-  line-height: 1.7;
-}
+.venture-card p { line-height: 1.7; }
 
-/* Responsive */
 @media (max-width: 900px) {
-  .venture-grid {
-    grid-template-columns: 1fr;
-  }
+  .venture-grid { grid-template-columns: 1fr; }
 }
 
-/* Two-frame hero images */
-.section__pic-container {
-  position: relative;
-  width: 360px;
-  height: 360px;
-  display: grid;
-  place-items: center;
-}
-
-.hero-image {
-  object-fit: cover;
-  border-radius: 50%;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.hero-image.fade-out {
-  opacity: 0;
-}
-
-/* Main (bottom) circle */
-.hero-image--main {
-  width: 350px;
-  height: 350px;
-  border: 8px solid var(--primary);
-}
-
-/* Top support circle (smaller, floating) */
-.hero-image--top {
-  position: absolute;
-  top: -18px;
-  right: -18px;
-  width: 120px;
-  height: 120px;
-  border: 6px solid var(--accent);
-  box-shadow: 0 10px 30px var(--shadow);
-}
 .venture-tabs {
   display: flex;
   justify-content: center;
