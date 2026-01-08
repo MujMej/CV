@@ -465,3 +465,115 @@ footer {
     display: none;
   }
 }
+
+/* Better readable text blocks */
+.text-container p {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.text-container p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lists readability (Experience, etc.) */
+.job-content ul {
+  margin: 14px 0 0;
+  padding-left: 20px;
+}
+
+.job-content li {
+  margin: 10px 0;
+  line-height: 1.65;
+}
+
+/* Make long content easier */
+.job-content p {
+  margin: 10px 0;
+  line-height: 1.75;
+}
+
+/* Make footer stick to bottom when page is short */
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer {
+  margin-top: auto;
+  width: 100%;
+  padding: 22px 5%;
+  background: var(--primary);
+  color: white;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+}
+
+/* “MujMej” italic signature */
+.brand-sign {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-left: 4px;
+}
+
+#profileImage {
+  transition: opacity 0.6s ease;
+}
+#profileImage.fade-out {
+  opacity: 0;
+}
+.venture-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 26px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.venture-card {
+  background: var(--card);
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.venture-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 44px var(--shadow);
+}
+
+.venture-header {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 14px;
+}
+
+.venture-card h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.venture-card p {
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .venture-grid {
+    grid-template-columns: 1fr;
+  }
+}
