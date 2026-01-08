@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mejra Mujanović - Cybersecurity Analyst</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mediaqueries.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Desktop Navigation -->
     <nav id="desktop-nav">
         <div class="logo">Mejra Mujanović</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="dark-toggle" onclick="toggleDarkMode()">Dark</div>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="dark-toggle" id="themeToggle" onclick="toggleDarkMode()">Light</div>
+        </div>
     </nav>
 
+    <!-- Mobile Navigation -->
     <nav id="hamburger-nav">
         <div class="logo">Mejra Mujanović</div>
         <div class="hamburger-menu">
@@ -34,28 +37,63 @@
                 <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
             </div>
         </div>
-        <div class="dark-toggle mobile" onclick="toggleDarkMode()">Dark</div>
+        <div class="dark-toggle mobile" onclick="toggleDarkMode()">Light</div>
     </nav>
 
     <!-- Profile Section -->
     <section id="profile">
         <div class="section__pic-container">
-            <img src="assets/profile-pic.jpg" alt="Mejra Mujanović" /> <!-- stavi svoju sliku -->
+            <img src="assets/profile-pic.jpg" alt="Mejra Mujanović" />
         </div>
         <div class="section__text">
             <p class="section__text__p1">Hello, I'm</p>
-            <h1 class="title">Mejra Mujanović</h1>
+            <h1 class="hero-title">Mejra Mujanović</h1>
             <p class="section__text__p2">Cybersecurity Analyst & Educator</p>
+
             <div class="btn-container">
-                <button class="btn btn-color-2" onclick="window.open('assets/resume.pdf')">Download CV</button>
-                <button class="btn btn-color-1" onclick="location.href='#contact'">Contact</button>
+                <button class="btn btn-color-2" onclick="window.open('assets/resume.pdf')">
+                    Download CV
+                </button>
+                <button class="btn btn-color-1" onclick="location.href='#contact'">
+                    Contact
+                </button>
             </div>
+
             <div id="socials-container">
-                <img src="assets/linkedin.png" alt="LinkedIn" class="icon" onclick="location.href='https://www.linkedin.com/in/mejra-mujanovic/'" />
-                <img src="assets/github.png" alt="GitHub" class="icon" onclick="location.href='https://github.com/MujMej'" />
-                <img src="assets/instagram.png" alt="Instagram" class="icon" onclick="location.href='https://www.instagram.com/mujmej/'" />
-                <div class="coming-soon" onclick="alert('mujmej online galerija & shop - dolazi uskoro')">mujmej</div>
-                <div class="coming-soon" onclick="alert('bossonoga natural cosmetics - dolazi uskoro')">bossonoga</div>
+                <img
+                    src="assets/linkedin.png"
+                    alt="LinkedIn"
+                    class="icon"
+                    onclick="location.href='https://www.linkedin.com/in/mejra-mujanovic/'"
+                />
+                <img
+                    src="assets/github.png"
+                    alt="GitHub"
+                    class="icon"
+                    onclick="location.href='https://github.com/MujMej'"
+                />
+                <img
+                    src="assets/instagram.png"
+                    alt="Instagram"
+                    class="icon"
+                    onclick="location.href='https://www.instagram.com/mujmej/'"
+                />
+            </div>
+
+            <!-- Brand pills for art & cosmetics -->
+            <div class="brand-pills" style="margin-top: 16px;">
+                <a class="pill pill-ig" href="https://instagram.com/mujmej" target="_blank">
+                    @mujmej
+                </a>
+                <a class="pill pill-ig" href="https://instagram.com/bosso.noga" target="_blank">
+                    @bossonoga
+                </a>
+                <a class="pill pill-site disabled" href="#">
+                    mujmej.com (soon)
+                </a>
+                <a class="pill pill-site disabled" href="#">
+                    bossonoga.com (soon)
+                </a>
             </div>
         </div>
     </section>
@@ -65,8 +103,22 @@
         <p class="section__text__p1">Get to know me</p>
         <h1 class="title">About Me</h1>
         <div class="text-container">
-            <p>Cybersecurity Analyst sa strašću prema edukaciji djece i porodica o sajber bezbjednosti. Microsoft Certified Security Operations Analyst (SC-200). Ambasador Women4Cyber Chapter Bosnia and Herzegovina od 2025. Volonter, umjetnica, kreator prirodne kozmetike i vječiti učenik.</p>
-            <p>Languages: English (C1) · Serbian/Croatian/Bosnian (Native) · German (B1) · Italian (A1) · Arabic (A1)</p>
+            <p>
+                I am a Cyber Security Analyst with a strong background in SOC operations, incident
+                analysis and security monitoring, combined with a multidisciplinary creative and
+                entrepreneurial mindset.
+            </p>
+            <p>
+                Alongside my work in cybersecurity, I build educational initiatives focused on
+                online safety, privacy awareness and cyber hygiene — especially for children and
+                non-technical audiences. I am also the founder of two independent creative ventures:
+                one dedicated to visual art and digital expression, and another focused on natural,
+                ritual-based wellness products. I believe in combining technology, creativity and
+                education to build meaningful, ethical and sustainable projects.
+            </p>
+            <p>
+                <strong>Languages:</strong> English (C1) · Bosnian/Serbian/Croatian (Native) · German (B1) · Arabic (A1)
+            </p>
         </div>
     </section>
 
@@ -77,90 +129,158 @@
 
         <div class="experience-category">
             <h2>Full-time Positions</h2>
+
             <details class="job-details">
                 <summary>SOC Analyst (Level 1) – PULSEC, Banja Luka | 2023–Present</summary>
                 <div class="job-content">
                     <p>24/7 monitoring, triage and initial incident handling across international clients.</p>
                     <ul>
-                        <li>Continuous monitoring using QRadar, Microsoft Defender XDR/MDO, Trend Micro Vision One, Carbon Black</li>
-                        <li>First-line triage of phishing, malware, credential misuse, MFA anomalies, C2, IPS/IDS events</li>
-                        <li>Investigation using logs, EDR telemetry, email traces, MITRE ATT&CK</li>
-                        <li>Escalation to L2/L3 with full context, ServiceNow lifecycle management</li>
-                        <li>False positive tuning, detailed documentation, client support tickets</li>
-                        <li>0-24 rotating shifts</li>
+                        <li>
+                            Continuous monitoring using IBM QRadar, Microsoft Defender XDR/MDO,
+                            Trend Micro Vision One, Carbon Black and other security tools
+                        </li>
+                        <li>
+                            First-line triage of phishing, malware, credential misuse, MFA anomalies,
+                            C2 traffic, IPS/IDS events and suspicious user behaviour
+                        </li>
+                        <li>
+                            Investigation using logs, EDR telemetry, email traces and MITRE ATT&amp;CK mapping
+                        </li>
+                        <li>
+                            Escalation to L2/L3 with full context and ServiceNow incident lifecycle management
+                        </li>
+                        <li>
+                            False positive tuning, detailed documentation and client communication through tickets
+                        </li>
+                        <li>24/7 rotating shift work in a SOC environment</li>
                     </ul>
-                    <p><strong>Achievements:</strong> Processed thousands of incidents with high accuracy, contributed to FP reduction, recognised for precision in high-severity cases.</p>
+                    <p>
+                        <strong>Achievements:</strong> Processed thousands of security events and incidents
+                        with high accuracy, contributed to false-positive reduction and was recognised for
+                        precision in handling high-severity cases.
+                    </p>
                 </div>
             </details>
 
             <details class="job-details">
                 <summary>Data Analyst – DDC MLS, Banja Luka | 2022–2023</summary>
                 <div class="job-content">
-                    <p>Data manipulation using Anydesk, MaxCare, Zendesk, 360. Client support with first-contact resolution.</p>
+                    <p>
+                        Data processing and client support using tools such as AnyDesk, MaxCare,
+                        Zendesk and 360. Focus on accuracy, first-contact resolution and maintaining
+                        data quality.
+                    </p>
                 </div>
             </details>
         </div>
 
         <div class="experience-category">
-            <h2>Part-time / Honorarno</h2>
+            <h2>Part-time & Freelance</h2>
+
             <details class="job-details">
                 <summary>Producer – OneTV, Remote (Kozarac–Chicago) | 2019–2023</summary>
                 <div class="job-content">
-                    <p>Live broadcasts, video production, social media promotion (Facebook, YouTube, Instagram), website maintenance.</p>
+                    <p>
+                        Live show production, video editing, social media promotion (Facebook, YouTube,
+                        Instagram) and basic website maintenance for a diaspora-focused TV channel.
+                    </p>
                 </div>
             </details>
         </div>
 
         <div class="experience-category">
             <h2>Volunteer Work & Ambassadorship</h2>
+
             <details class="job-details">
                 <summary>Women4Cyber Ambassador Bosnia and Herzegovina | 2025–Present</summary>
                 <div class="job-content">
-                    <p>Promoting women's role in cybersecurity, gender equality, education, training programs, and increasing women's presence in the job market and research.</p>
+                    <p>
+                        Promoting the role of women in cybersecurity, equality in the tech sector and
+                        educational initiatives. Supporting training programs, public talks and community
+                        projects to increase women's presence in cybersecurity jobs and research.
+                    </p>
                 </div>
             </details>
+
             <details class="job-details">
                 <summary>Facilitator – Nansenskolen, NDC, Most Mira | 2010–2022</summary>
                 <div class="job-content">
-                    <p>Workshops on diversity, inclusion, stereotypes, peer violence, peacebuilding, community performances.</p>
+                    <p>
+                        Facilitating workshops on diversity, inclusion, stereotypes, peer violence,
+                        peacebuilding and youth empowerment, including creative community performances.
+                    </p>
                 </div>
             </details>
         </div>
 
         <div class="experience-category">
             <h2>Entrepreneurial Ventures</h2>
-            <p><strong>@mujmej</strong> – Artist: Painting and selling original artwork and prints online.</p>
-            <p><strong>@bossonoga</strong> – Creator of natural spa-ritual body care products (bath salts, foot soaks, scrubs, butters, oils).</p>
+
+            <div class="brand-pills" style="margin-bottom: 16px;">
+                <a class="pill pill-ig" href="https://instagram.com/mujmej" target="_blank">@mujmej</a>
+                <a class="pill pill-ig" href="https://instagram.com/bosso.noga" target="_blank">@bossonoga</a>
+            </div>
+
+            <p>
+                <strong>@mujmej</strong> – Visual artist focused on original paintings, fine art prints
+                and conceptual visual storytelling.
+            </p>
+            <p>
+                <strong>@bossonoga</strong> – Founder of a natural spa-ritual brand creating handcrafted
+                body care products (bath salts, foot soaks, scrubs, body butters and oils).
+            </p>
         </div>
     </section>
 
     <!-- Projects -->
     <section id="projects">
         <p class="section__text__p1">My Initiatives</p>
-        <h1 class="title">Projects & Initiatives</h1>
-        <div class="projects-container">
+        <h1 class="title">Projects &amp; Initiatives</h1>
 
+        <div class="projects-container">
+            <!-- S.AF.E Blog -->
             <div class="project-card">
                 <div class="project-info">
                     <h2>S.AF.E Blog</h2>
-                    <p>Samostalna inicijativa podržana od Women4Cyber BiH Chapter. Blog na bosanskom/hrvatskom/srpskom jeziku posvećen podizanju svijesti o sajber bezbjednosti za porodice, djecu i širu javnost.</p>
-                    <h3 class="counter-display"><span class="counter">0</span>+ postova</h3>
+                    <p>
+                        An independent cybersecurity education initiative supported by Women4Cyber. 
+                        The blog is written in Bosnian/Serbian/Croatian and focuses on
+                        raising awareness about cybersecurity, digital safety and online threats for
+                        families, children and the general public.
+                    </p>
+                    <h3 class="counter-display">
+                        <span id="postCounter">0</span>+ posts
+                    </h3>
                     <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://s-af-e.blogspot.com/'">Posjeti Blog</button>
+                        <button
+                            class="btn btn-color-2 project-btn"
+                            onclick="location.href='https://s-af-e.blogspot.com/'"
+                        >
+                            Visit Blog
+                        </button>
                     </div>
                 </div>
             </div>
 
+            <!-- Cyber Education for Children -->
             <div class="project-card">
                 <div class="project-info">
                     <h2>Cyber Security Education for Children</h2>
-                    <p>Interaktivne prezentacije i radionice za djecu o online bezbjednosti, phishingu, privatnosti i sajber higijeni.</p>
+                    <p>
+                        Interactive presentations and workshops designed to educate children about
+                        online safety, phishing risks, privacy protection and basic cyber hygiene
+                        through practical examples and discussion.
+                    </p>
                     <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/MujMej/cyber-edu-children'">Prezentacije & Materijali (GitHub)</button>
+                        <button
+                            class="btn btn-color-2 project-btn"
+                            onclick="location.href='https://github.com/MujMej/cyber-edu-children'"
+                        >
+                            Presentations &amp; Materials (GitHub)
+                        </button>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -168,6 +288,7 @@
     <section id="contact">
         <p class="section__text__p1">Get in Touch</p>
         <h1 class="title">Contact Me</h1>
+
         <div class="contact-container">
             <div class="contact-info">
                 <img src="assets/email.png" alt="Email" class="icon" />
@@ -175,15 +296,20 @@
             </div>
             <div class="contact-info">
                 <img src="assets/linkedin.png" alt="LinkedIn" class="icon" />
-                <p><a href="https://www.linkedin.com/in/mejra-mujanovic/">LinkedIn Profile</a></p>
+                <p>
+                    <a href="https://www.linkedin.com/in/mejra-mujanovic/">
+                        LinkedIn Profile
+                    </a>
+                </p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>Copyright © 2026 Mejra Mujanović. All Rights Reserved.</p>
+        <p> with love, MujMej.</p>
     </footer>
 
+    <!-- Your JS (dark mode, hamburger, counter animation) -->
     <script src="script.js"></script>
 </body>
 </html>
