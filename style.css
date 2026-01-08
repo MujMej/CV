@@ -1,89 +1,457 @@
+/* =========================
+   THEME VARIABLES
+========================= */
 :root {
-    --bg: #f8fafc;
-    --text: #1e293b;
-    --primary: #10b981;      /* emerald green */
-    --accent: #fbbf24;       /* gold */
-    --card: white;
-    --shadow: rgba(0,0,0,0.1);
+  --bg: #f8fafc;
+  --text: #1e293b;
+  --primary: #10b981; /* emerald green */
+  --accent: #fbbf24;  /* gold */
+  --card: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
 }
 
 .dark-mode {
-    --bg: #0f172a;
-    --text: #e2e8f0;
-    --primary: #6ee7b7;
-    --accent: #fcd34d;
-    --card: #1e293b;
-    --shadow: rgba(0,0,0,0.4);
+  --bg: #0f172a;
+  --text: #e2e8f0;
+  --primary: #6ee7b7;
+  --accent: #fcd34d;
+  --card: #1e293b;
+  --shadow: rgba(0, 0, 0, 0.4);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); transition: all 0.4s ease; line-height: 1.6; }
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s ease, color 0.4s ease;
+  line-height: 1.6;
+}
+
+/* =========================
+   NAVBAR / HEADER
+========================= */
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    background: var(--primary);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    transition: all 0.4s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: var(--primary);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background 0.4s ease;
 }
 
-.logo { font-size: 1.8rem; font-weight: 700; color: white; }
-.nav-links li { list-style: none; display: inline-block; margin: 0 20px; }
-.nav-links a { color: white; text-decoration: none; font-weight: 500; transition: all 0.3s; }
-.nav-links a:hover { color: var(--accent); transform: scale(1.1); }
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  white-space: nowrap;
+}
 
+/* Right side container (nav links + toggle + optional pills) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Nav links list */
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block; /* IMPORTANT for transform */
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Theme toggle */
 .dark-toggle {
-    background: rgba(255,255,255,0.2);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  user-select: none;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
-#profile { padding: 120px 5% 80px; display: flex; align-items: center; justify-content: center; gap: 5rem; flex-wrap: wrap; text-align: center; }
-.section__pic-container img { width: 350px; height: 350px; object-fit: cover; border-radius: 50%; border: 8px solid var(--primary); }
-.title { font-size: 3.5rem; margin: 10px 0; }
-.section__text__p2 { font-size: 1.8rem; color: var(--primary); font-weight: 600; }
+.dark-toggle:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px);
+}
 
-.btn { padding: 12px 28px; border-radius: 30px; font-weight: 600; cursor: pointer; transition: all 0.3s; margin: 10px; }
-.btn-color-1 { background: var(--primary); color: white; border: none; }
-.btn-color-1:hover { background: var(--accent); }
-.btn-color-2 { background: none; border: 2px solid var(--primary); color: var(--primary); }
-.btn-color-2:hover { background: var(--primary); color: white; }
+/* =========================
+   BRAND PILLS (optional)
+   Use in header or sections:
+   <div class="brand-pills">
+     <a class="pill pill-ig" href="...">@mujmej</a>
+     <a class="pill pill-ig" href="...">@bossonoga</a>
+   </div>
+========================= */
+.brand-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
-#socials-container { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-.icon { width: 45px; height: 45px; cursor: pointer; transition: 0.3s; }
-.icon:hover { transform: scale(1.2); }
-.coming-soon { background: var(--primary); color: white; padding: 10px 20px; border-radius: 30px; cursor: pointer; font-size: 0.9rem; }
-.coming-soon:hover { background: var(--accent); color: black; }
+.pill {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
 
-section { padding: 100px 5%; }
-.section__text__p1 { text-align: center; color: var(--primary); font-weight: 600; }
-.title { text-align: center; font-size: 3rem; margin-bottom: 50px; }
+.pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
 
-.text-container { max-width: 800px; margin: 0 auto; background: var(--card); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow); }
+.pill-ig {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: white;
+}
 
-.experience-category { margin-bottom: 60px; }
-.experience-category h2 { color: var(--primary); margin-bottom: 20px; text-align: center; }
+.pill.disabled {
+  pointer-events: none;
+  opacity: 0.65;
+  border-style: dashed;
+}
 
-.job-details { background: var(--card); margin: 20px 0; border-radius: 15px; padding: 10px; box-shadow: 0 5px 15px var(--shadow); }
-.job-details summary { font-size: 1.4rem; font-weight: 600; cursor: pointer; padding: 20px; color: var(--primary); }
-.job-details[open] summary { margin-bottom: 15px; }
-.job-content { padding: 0 30px 30px; }
+/* =========================
+   HERO / PROFILE
+========================= */
+#profile {
+  padding: 120px 5% 80px; /* accounts for fixed nav */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
 
-.projects-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
-.project-card { background: var(--card); padding: 40px; border-radius: 20px; width: 400px; box-shadow: 0 10px 30px var(--shadow); transition: 0.3s; }
-.project-card:hover { transform: translateY(-10px); }
-.project-card h2 { color: var(--primary); margin-bottom: 15px; }
-.counter-display { font-size: 2rem; font-weight: 700; color: var(--primary); margin: 20px 0; }
+.section__pic-container img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 8px solid var(--primary);
+}
 
-.contact-container { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; }
-.contact-info { display: flex; align-items: center; gap: 15px; font-size: 1.3rem; }
+.section__text__p1 {
+  text-align: center;
+  color: var(--primary);
+  font-weight: 600;
+}
 
-footer { text-align: center; padding: 40px; background: var(--primary); color: white; margin-top: 50px; }
+.title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 50px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin: 10px 0;
+}
+
+.section__text__p2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  margin: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn-color-1 {
+  background: var(--primary);
+  color: white;
+  border: none;
+}
+
+.btn-color-1:hover {
+  background: var(--accent);
+  color: #0b1220;
+}
+
+.btn-color-2 {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-color-2:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* =========================
+   SOCIALS
+========================= */
+#socials-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.icon:hover {
+  transform: scale(1.12);
+  opacity: 0.95;
+}
+
+.coming-soon {
+  background: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.coming-soon:hover {
+  background: var(--accent);
+  color: #0b1220;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   SECTIONS / CONTENT CARDS
+========================= */
+section {
+  padding: 100px 5%;
+}
+
+.text-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--card);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--shadow);
+}
+
+/* =========================
+   EXPERIENCE
+========================= */
+.experience-category {
+  margin-bottom: 60px;
+}
+
+.experience-category h2 {
+  color: var(--primary);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.job-details {
+  background: var(--card);
+  margin: 20px 0;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 5px 15px var(--shadow);
+}
+
+.job-details summary {
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 20px;
+  color: var(--primary);
+  list-style: none;
+}
+
+.job-details summary::-webkit-details-marker { display: none; }
+
+.job-details[open] summary {
+  margin-bottom: 15px;
+}
+
+.job-content {
+  padding: 0 30px 30px;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.project-card {
+  background: var(--card);
+  padding: 40px;
+  border-radius: 20px;
+  width: 400px;
+  box-shadow: 0 10px 30px var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 44px var(--shadow);
+}
+
+.project-card h2 {
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.counter-display {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 20px 0;
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.3rem;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  text-align: center;
+  padding: 40px;
+  background: var(--primary);
+  color: white;
+  margin-top: 50px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  nav {
+    padding: 0.9rem 4%;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .nav-right {
+    gap: 12px;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .dark-toggle {
+    padding: 7px 12px;
+    font-size: 0.85rem;
+  }
+
+  #profile {
+    gap: 2.5rem;
+    padding: 110px 5% 70px;
+  }
+
+  .section__pic-container img {
+    width: 260px;
+    height: 260px;
+  }
+
+  .hero-title {
+    font-size: 2.6rem;
+  }
+
+  .section__text__p2 {
+    font-size: 1.4rem;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 520px) {
+  /* Optional: hide nav links if you don't have a hamburger menu yet */
+  .nav-links {
+    display: none;
+  }
+}
