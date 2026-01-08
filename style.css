@@ -342,8 +342,34 @@ section {
   margin-bottom: 15px;
 }
 
+/* EXPERIENCE – make content readable, not centered */
 .job-content {
-  padding: 0 30px 30px;
+  text-align: left;          /* KLJUČ */
+  max-width: 900px;          /* da ne bude preširoko */
+  margin: 0 auto;
+}
+
+/* Nice bullet list */
+.job-content ul {
+  margin: 14px 0 0;
+  padding-left: 20px;        /* normalno uvlačenje */
+  list-style-position: outside;
+}
+
+.job-content li {
+  margin: 10px 0;
+  line-height: 1.65;
+}
+
+/* Achievements paragraph */
+.job-content p {
+  margin: 10px 0;
+  line-height: 1.75;
+}
+
+/* OPTIONAL: make first line (role summary) slightly muted */
+.job-content > p:first-of-type {
+  opacity: 0.9;
 }
 
 /* =========================
