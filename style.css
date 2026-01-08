@@ -4,10 +4,13 @@
 :root {
   --bg: #f8fafc;
   --text: #1e293b;
-  --primary: #10b981; /* emerald green */
-  --accent: #fbbf24;  /* gold */
+  --primary: #10b981;
+  --accent: #fbbf24;
   --card: #ffffff;
   --shadow: rgba(0, 0, 0, 0.1);
+
+  --icon-bg: #0f172a;     /* tamna pozadina za svijetlu temu */
+  --icon-bg-hover: #020617;
 }
 
 .dark-mode {
@@ -17,7 +20,11 @@
   --accent: #fcd34d;
   --card: #1e293b;
   --shadow: rgba(0, 0, 0, 0.4);
+
+  --icon-bg: #1e293b;      /* malo svjetlija na tamnoj temi */
+  --icon-bg-hover: #020617;
 }
+
 
 /* =========================
    GLOBAL RESET
@@ -253,15 +260,19 @@ nav {
 }
 
 .icon {
-  width: 45px;
-  height: 45px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  border-radius: 999px;
+  padding: 8px;
+  background: var(--icon-bg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
 .icon:hover {
-  transform: scale(1.12);
-  opacity: 0.95;
+  transform: translateY(-2px) scale(1.05);
+  background: var(--icon-bg-hover);
 }
 
 .coming-soon {
