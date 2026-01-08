@@ -1,27 +1,31 @@
 /* =========================
-   THEME VARIABLES
+   THEME VARIABLES – EMERALD + GOLD
 ========================= */
 :root {
-  --bg: #f8fafc;
-  --text: #1e293b;
-  --primary: #10b981;
-  --accent: #fbbf24;
-  --card: #ffffff;
-  --shadow: rgba(0, 0, 0, 0.1);
+  /* Light mode – svijetla, čista, emerald identitet */
+  --bg: #F7F9F6;          /* glavna pozadina */
+  --text: #0B2F28;        /* osnovni tekst (tamni teal) */
+  --primary: #0F6B52;     /* smaragdno zelena – tvoja glavna boja */
+  --accent: #D9B35A;      /* toplo zlato – akcenti / CTA */
+  --card: #FFFFFF;        /* kartice, blokovi */
+  --shadow: rgba(0, 0, 0, 0.08);
 
-  --icon-bg: #0f172a;     /* tamna pozadina za svijetlu temu */
-  --icon-bg-hover: #020617;
+  /* ikonice na svijetloj temi */
+  --icon-bg: #0B2F28;
+  --icon-bg-hover: #064737;
 }
 
 .dark-mode {
-  --bg: #0f172a;
-  --text: #e2e8f0;
-  --primary: #6ee7b7;
-  --accent: #fcd34d;
-  --card: #1e293b;
-  --shadow: rgba(0, 0, 0, 0.4);
+  /* Dark mode – tamna, smirena, emerald pozadina */
+  --bg: #0B1010;          /* vrlo tamna teal/charcoal pozadina */
+  --text: #E9EEE9;        /* svijetli tekst */
+  --primary: #0F6B52;     /* i dalje smaragd – konzistentan brand */
+  --accent: #D9B35A;      /* zlato za naglaske */
+  --card: #0B2F28;        /* tamne kartice */
+  --shadow: rgba(0, 0, 0, 0.6);
 
-  --icon-bg: #1e293b;      /* malo svjetlija na tamnoj temi */
+  /* ikonice na dark temi */
+  --icon-bg: #0F3F35;
   --icon-bg-hover: #020617;
 }
 
@@ -121,11 +125,6 @@ nav {
 
 /* =========================
    BRAND PILLS (optional)
-   Use in header or sections:
-   <div class="brand-pills">
-     <a class="pill pill-ig" href="...">@mujmej</a>
-     <a class="pill pill-ig" href="...">@bossonoga</a>
-   </div>
 ========================= */
 .brand-pills {
   display: flex;
