@@ -603,3 +603,47 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Two-frame hero images */
+.section__pic-container {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  display: grid;
+  place-items: center;
+}
+
+.hero-image {
+  object-fit: cover;
+  border-radius: 50%;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.hero-image.fade-out {
+  opacity: 0;
+}
+
+/* Main (bottom) circle */
+.hero-image--main {
+  width: 350px;
+  height: 350px;
+  border: 8px solid var(--primary);
+}
+
+/* Top support circle (smaller, floating) */
+.hero-image--top {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 120px;
+  height: 120px;
+  border: 6px solid var(--accent);
+  box-shadow: 0 10px 30px var(--shadow);
+}
+.venture-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 16px 0 26px;
+  flex-wrap: wrap;
+}
