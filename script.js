@@ -5,7 +5,7 @@ function toggleDarkMode() {
     const isDark = document.body.classList.contains("dark-mode");
 
     document.querySelectorAll(".dark-toggle")
-        .forEach(btn => btn.innerText = isDark ? "Light" : "Dark");
+        .forEach(btn => btn.innerText = isDark ? "Light mode" : "Dark mode";);
 
     localStorage.setItem("darkMode", isDark);
 }
