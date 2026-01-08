@@ -21,6 +21,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     animateCounter("postCounter", 80);
+    
+    // Profile image rotate (optional)
+  rotateProfileImages([
+    "assets/profile-pic.jpg",
+    "assets/profile-pic-2.jpg"
+  ], 3500);
+});
+
+function rotateProfileImages(images, intervalMs = 3500) {
+  const img = document.getElementById("profileImage");
+  if (!img || !images || images.length < 2) return;
+
+  let index = 0;
+
+  setInterval(() => {
+    img.classList.add("fade-out");
+
+    setTimeout(() => {
+      index = (index + 1) % images.length;
+      img.src = images[index];
+      img.classList.remove("fade-out");
+    }, 650);
+
+  }, intervalMs);
+}
 });
 
 
