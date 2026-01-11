@@ -78,8 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
   rotateHeroImages(
     "heroImageMain",
     "heroImageTop",
-    "assets/profile-pic.jpg",
-    "assets/profile-pic-2.jpg",
+    "assets/profile-pic.png",
+    "assets/profile-pic-2.png",
     3500
   );
 });
