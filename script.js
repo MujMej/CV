@@ -1,4 +1,6 @@
-/* THEME TOGGLE */
+/* =========================
+   THEME TOGGLE
+========================= */
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
   const isDark = document.body.classList.contains("dark-mode");
@@ -10,7 +12,9 @@ function toggleDarkMode() {
   localStorage.setItem("darkMode", String(isDark));
 }
 
-/* COUNTER ANIMATION */
+/* =========================
+   COUNTER ANIMATION
+========================= */
 function animateCounter(id, target, duration = 1800) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -22,21 +26,32 @@ function animateCounter(id, target, duration = 1800) {
 
   const timer = setInterval(() => {
     current += step;
+
     if (current >= target) {
       current = target;
       clearInterval(timer);
     }
+
     el.textContent = current;
   }, intervalMs);
 }
 
-/* HERO IMAGE ROTATION (2-frame swap) */
+/* =========================
+   HERO IMAGE ROTATION (SYNCHRONIZED)
+   - main shows A while top shows B
+   - then swap together
+========================= */
 function rotateHeroImages(mainId, topId, imgA, imgB, intervalMs = 3500) {
   const main = document.getElementById(mainId);
   const top = document.getElementById(topId);
   if (!main || !top) return;
 
-  // start state: main = A, top = B (already set in HTML)
+  // preload images (prevents flicker/empty frames)
+  [imgA, imgB].forEach((src) => {
+    const im = new Image();
+    im.src = src;
+  });
+
   const pairs = [
     { main: imgA, top: imgB },
     { main: imgB, top: imgA },
@@ -44,12 +59,17 @@ function rotateHeroImages(mainId, topId, imgA, imgB, intervalMs = 3500) {
 
   let index = 0;
 
+  // force correct start state (even if HTML differs)
+  main.src = pairs[0].main;
+  top.src = pairs[0].top;
+
   setInterval(() => {
     main.classList.add("fade-out");
     top.classList.add("fade-out");
 
     setTimeout(() => {
       index = (index + 1) % pairs.length;
+
       main.src = pairs[index].main;
       top.src = pairs[index].top;
 
@@ -59,7 +79,9 @@ function rotateHeroImages(mainId, topId, imgA, imgB, intervalMs = 3500) {
   }, intervalMs);
 }
 
-/* ON LOAD */
+/* =========================
+   ON LOAD
+========================= */
 document.addEventListener("DOMContentLoaded", () => {
   // restore theme
   const saved = localStorage.getItem("darkMode");
@@ -74,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // counter (set your real number here)
   animateCounter("postCounter", 80);
 
-  // two-image swap
+  // synchronized hero swap (your actual files from assets/)
   rotateHeroImages(
     "heroImageMain",
     "heroImageTop",
