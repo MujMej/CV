@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cyber Education Materials</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      background: #800020;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #content {
+      display: none;
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card" id="loginBox">
+  <h2>Restricted Access</h2>
+  <p>Enter password to access materials.</p>
+  <input type="password" id="passwordInput" placeholder="Password">
+  <button onclick="checkPassword()">Unlock</button>
+  <div class="error" id="errorMsg"></div>
+</div>
+
+<div id="content">
+  <h1>Cyber Security Education Materials</h1>
+  <p>Welcome.</p>
+
+  <ul>
+    <li><a href="assets/Tema1.pdf" target="_blank">Tema 1</a></li>
+    <li><a href="assets/Tema2.pdf" target="_blank">Tema 2</a></li>
+    <li><a href="assets/Tema3.pdf" target="_blank">Tema 3</a></li>
+  </ul>
+
+  <p><a href="quizzes.html">Go to quizzes</a></p>
+</div>
+
+<script>
+  const correctPassword = "edukacija2026"; // PROMIJENI
+
+  function checkPassword() {
+    const input = document.getElementById("passwordInput").value;
+    const error = document.getElementById("errorMsg");
+
+    if (input === correctPassword) {
+      document.getElementById("loginBox").style.display = "none";
+      document.getElementById("content").style.display = "block";
+      sessionStorage.setItem("eduAccess", "true");
+    } else {
+      error.textContent = "Wrong password.";
+    }
+  }
+
+  window.onload = function() {
+    if (sessionStorage.getItem("eduAccess") === "true") {
+      document.getElementById("loginBox").style.display = "none";
+      document.getElementById("content").style.display = "block";
+    }
+  }
+</script>
+
+</body>
+</html>
